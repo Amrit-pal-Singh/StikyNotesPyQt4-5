@@ -1,15 +1,15 @@
 import sys
-from PyQt4 import QtGui, QtCore, QtGui
-from PyQt4.QtCore import Qt
+from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtCore import Qt
 
 x = 300
 y = 300
 
 
 
-class TitleBar(QtGui.QDialog):
+class TitleBar(QtWidgets.QDialog):
     def __init__(self, parent = None):
-        QtGui.QWidget.__init__(self, parent)
+        QtWidgets.QWidget.__init__(self, parent)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         
         css = """
@@ -31,18 +31,18 @@ class TitleBar(QtGui.QDialog):
         }
         """
         self.setStyleSheet(css)
-        minimize = QtGui.QToolButton(self)
-        close = QtGui.QToolButton(self)
+        minimize = QtWidgets.QToolButton(self)
+        close = QtWidgets.QToolButton(self)
         minimize.setIcon(QtGui.QIcon("min.png"))
         close.setIcon(QtGui.QIcon("close.png"))
         minimize.setMinimumHeight(20)
         close.setMinimumHeight(20)
 
-        layout = QtGui.QHBoxLayout(self)
+        layout = QtWidgets.QHBoxLayout(self)
 
 
-        edit_button = QtGui.QToolButton(self)
-        #add_button = QtGui.QToolButton(self)
+        edit_button = QtWidgets.QToolButton(self)
+        #add_button = QtWidgets.QToolButton(self)
 
         edit_button.setMinimumHeight(20)
         #add_button.setMinimumHeight(20)
@@ -112,9 +112,9 @@ class TitleBar(QtGui.QDialog):
 
 ####
 
-class Frame(QtGui.QFrame):  
+class Frame(QtWidgets.QFrame):  
     def __init__(self, parent = None):
-        QtGui.QFrame.__init__(self, parent)
+        QtWidgets.QFrame.__init__(self, parent)
         self.m_mouse_down= False        
         css = """
         QFrame{
@@ -128,12 +128,12 @@ class Frame(QtGui.QFrame):
         self.setMouseTracking(True)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.titleBar_ = TitleBar(self)
-        vBox = QtGui.QVBoxLayout(self)
+        vBox = QtWidgets.QVBoxLayout(self)
         vBox.addWidget(self.titleBar_)
         vBox.setContentsMargins(0, 0, 0, 0)
         #vBox.setMargin(0)
         vBox.setSpacing(0)
-        layout = QtGui.QVBoxLayout(self)
+        layout = QtWidgets.QVBoxLayout(self)
         # layout.setMargin(3)
         layout.setSpacing(0)
         
@@ -172,7 +172,7 @@ class Frame(QtGui.QFrame):
 
 
 
-class GrowingTextEdit(QtGui.QTextEdit):
+class GrowingTextEdit(QtWidgets.QTextEdit):
     def __init__(self, *args, **kwargs):
         super(GrowingTextEdit, self).__init__(*args, **kwargs)  
         self.document().contentsChanged.connect(self.sizeChange)
@@ -192,7 +192,7 @@ class GrowingTextEdit(QtGui.QTextEdit):
 
 
 if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     box = Frame()
     box.move(x,y)    
     box.show()
