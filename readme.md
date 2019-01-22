@@ -1,16 +1,15 @@
 # Stiky notes in PyQt4 and PyQt5
 
-What is left ->
-	Add button not working which will add new window
-	Pyqt5 code left
-	Add save button to save the stikeyNote	
-	It should also restart on reboot
 
-What done ->
-	Currently contain the PyQt4 code.	
-	
-	** Customized titleBar ** which contain only 2 button one to add new window and one to close
-	
-	** Customized QTextEdit ** which increase its size with content upto some limit	
-	
-	
+
+### What is done 
+
+Currently contain the PyQt4 code.<br>	
+**Customized titleBar** which contain only 2 buttons, to close and save.<br>
+**Customized QTextEdit** which increase its size with content upto some limit.	
+		
+
+### What is left
+
+Pyqt5 code is left.<br>
+Adding a save button to save the stikyNote.
